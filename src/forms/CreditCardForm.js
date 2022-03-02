@@ -39,6 +39,16 @@ export const CreditCardForm = () => {
         }
       },
     },
+    amount: {
+      strategy: 'onFirstSuccessOrFirstBlur',
+      initialValue: '',
+      sanitize: (value) => value.trim(),
+      validate: (value) => {
+        if (!cardValidator.number(value).isValid) {
+          return 'Amount is invalid'
+        }
+      },
+    },
   })
 
   const toast = useToast()
@@ -107,6 +117,21 @@ export const CreditCardForm = () => {
           {({error, onBlur, onChange, ref, valid, validating, value}) => (
             <Input
               label="CVV"
+              error={error}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              ref={ref}
+              valid={valid}
+              validating={validating}
+              value={value}
+            />
+          )}
+        </Field>
+
+        <Field name="amount">
+          {({error, onBlur, onChange, ref, valid, validating, value}) => (
+            <Input
+              label="Amount"
               error={error}
               onBlur={onBlur}
               onChangeText={onChange}
