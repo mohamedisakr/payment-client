@@ -3,7 +3,7 @@ import {Box, HStack} from '@chakra-ui/layout'
 import {useToast} from '@chakra-ui/toast'
 import cardValidator from 'card-validator'
 import {useForm} from 'react-ux-form'
-import {isInt} from 'validator'
+import {isDecimal} from 'validator'
 import {pay} from '../services/payment'
 import {Input} from '../components/Input'
 import {Page} from '../components/Page'
@@ -45,7 +45,7 @@ export const CreditCardForm = () => {
       initialValue: '',
       sanitize: (value) => value.trim(),
       validate: (value) => {
-        if (!isInt(value)) {
+        if (!isDecimal(value)) {
           return 'Amount is invalid'
         }
       },
@@ -94,7 +94,7 @@ export const CreditCardForm = () => {
       console.log(JSON.stringify(paymentToAdd, null, 4))
       console.log(`response : ${JSON.stringify(res, null, 4)}`)
 
-      toast.success('New payment added successfully')
+      resetForm()
     } catch (err) {
       console.log(`Error : ${JSON.stringify(err, null, 4)}`)
       toast.error(`${err.response.data.message}`)
