@@ -111,7 +111,7 @@ export const CreditCardForm = () => {
           {({error, onBlur, onChange, ref, valid, validating, value}) => (
             <Input
               label="Card number"
-              placeholder="4242424242424242"
+              placeholder="#### #### #### ####"
               error={error}
               onBlur={onBlur}
               onChangeText={onChange}
@@ -127,6 +127,7 @@ export const CreditCardForm = () => {
           {({error, onBlur, onChange, ref, valid, validating, value}) => (
             <Input
               label="Expiration date"
+              placeholder="MM/YYYY"
               error={error}
               onBlur={onBlur}
               onChangeText={onChange}
@@ -142,6 +143,7 @@ export const CreditCardForm = () => {
           {({error, onBlur, onChange, ref, valid, validating, value}) => (
             <Input
               label="CVV"
+              placeholder="###"
               error={error}
               onBlur={onBlur}
               onChangeText={onChange}
