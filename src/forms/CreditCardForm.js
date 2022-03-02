@@ -4,8 +4,8 @@ import {useToast} from '@chakra-ui/toast'
 import cardValidator from 'card-validator'
 import * as React from 'react'
 import {useForm} from 'react-ux-form'
-import {Input} from './components/Input'
-import {Page} from './components/Page'
+import {Input} from '../components/Input'
+import {Page} from '../components/Page'
 
 export const CreditCardForm = () => {
   const {Field, resetForm, submitForm} = useForm({

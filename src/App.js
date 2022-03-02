@@ -54,7 +54,7 @@ export const App = () => (
       </VStack>
     </Flex>
 
-    <Route path="/" component={BasicForm} />
+    {/* <Route path="/" component={BasicForm} /> */}
     <Route path="/credit-card" component={CreditCardForm} />
     {/* <Route path="/strategies" component={StrategiesForm} />
     <Route path="/async-validation" component={AsyncValidationForm} />
