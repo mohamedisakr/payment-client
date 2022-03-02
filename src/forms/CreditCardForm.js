@@ -4,6 +4,7 @@ import {useToast} from '@chakra-ui/toast'
 import cardValidator from 'card-validator'
 import {useForm} from 'react-ux-form'
 import {isInt} from 'validator'
+import {pay} from '../services/payment'
 import {Input} from '../components/Input'
 import {Page} from '../components/Page'
 
@@ -52,13 +53,22 @@ export const CreditCardForm = () => {
   })
 
   const toast = useToast()
+  let paymentToAdd = {}
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault()
 
     submitForm(
       (values) => {
         console.log('values', values)
+        const {cardNumber, cvc, expirationDate, amount} = values
+
+        paymentToAdd = {
+          creditCard: cardNumber,
+          expDate: expirationDate,
+          cvv: cvc,
+          amount,
+        }
 
         toast({
           title: 'Submission succeeded',
@@ -78,6 +88,17 @@ export const CreditCardForm = () => {
         })
       },
     )
+
+    try {
+      const res = await pay(paymentToAdd)
+      console.log(JSON.stringify(paymentToAdd, null, 4))
+      console.log(`response : ${JSON.stringify(res, null, 4)}`)
+
+      toast.success('New payment added successfully')
+    } catch (err) {
+      console.log(`Error : ${JSON.stringify(err, null, 4)}`)
+      toast.error(`${err.response.data.message}`)
+    }
   }
 
   return (
