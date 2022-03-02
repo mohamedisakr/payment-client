@@ -4,25 +4,13 @@ import {CheckIcon, WarningIcon} from '@chakra-ui/icons'
 import {
   Input as ChakraInput,
   InputGroup,
-  InputProps,
   InputRightElement,
 } from '@chakra-ui/input'
 import {Box, Text} from '@chakra-ui/layout'
 import {Spinner} from '@chakra-ui/spinner'
-import * as React from 'react'
+import {forwardRef} from 'react'
 
-// type Props = {
-//   error?: string;
-//   label: string;
-//   onBlur: () => void;
-//   onChange?: InputProps["onChange"];
-//   onChangeText?: (text: string) => void;
-//   valid: boolean;
-//   validating: boolean;
-//   value: string;
-// };<HTMLInputElement, Props>
-
-export const Input = React.forwardRef(
+export const Input = forwardRef(
   (
     {error, label, onBlur, onChange, onChangeText, valid, validating, value},
     forwardedRef,

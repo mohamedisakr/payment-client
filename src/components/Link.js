@@ -1,8 +1,7 @@
 import {useTheme} from '@chakra-ui/system'
 import * as React from 'react'
-import {Link as WouterLink, LinkProps, useRoute} from 'wouter'
+import {Link as WouterLink, useRoute} from 'wouter'
 
-// export const Link = (props: LinkProps & {href: string}) => {
 export const Link = (props) => {
   const {colors} = useTheme()
   const [active] = useRoute(props.href)

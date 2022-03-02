@@ -2,7 +2,7 @@ import {Button} from '@chakra-ui/button'
 import {Box, HStack} from '@chakra-ui/layout'
 import {useToast} from '@chakra-ui/toast'
 import cardValidator from 'card-validator'
-import * as React from 'react'
+// import React from 'react'
 import {useForm} from 'react-ux-form'
 import {Input} from '../components/Input'
 import {Page} from '../components/Page'
@@ -35,7 +35,7 @@ export const CreditCardForm = () => {
       sanitize: (value) => value.trim(),
       validate: (value) => {
         if (!cardValidator.cvv(value).isValid) {
-          return 'CVC should have 3 characters'
+          return 'CVV should have 3 characters'
         }
       },
     },
