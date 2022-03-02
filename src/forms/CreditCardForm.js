@@ -2,8 +2,8 @@ import {Button} from '@chakra-ui/button'
 import {Box, HStack} from '@chakra-ui/layout'
 import {useToast} from '@chakra-ui/toast'
 import cardValidator from 'card-validator'
-// import React from 'react'
 import {useForm} from 'react-ux-form'
+import {isInt} from 'validator'
 import {Input} from '../components/Input'
 import {Page} from '../components/Page'
 
@@ -44,7 +44,7 @@ export const CreditCardForm = () => {
       initialValue: '',
       sanitize: (value) => value.trim(),
       validate: (value) => {
-        if (!cardValidator.number(value).isValid) {
+        if (!isInt(value)) {
           return 'Amount is invalid'
         }
       },
