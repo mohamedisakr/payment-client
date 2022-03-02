@@ -54,6 +54,7 @@ export const CreditCardForm = () => {
 
   const toast = useToast()
   let paymentToAdd = {}
+  let validationErrors = {}
 
   const onSubmit = async (event) => {
     event.preventDefault()
@@ -79,7 +80,7 @@ export const CreditCardForm = () => {
       },
       (errors) => {
         console.log('errors', errors)
-
+        validationErrors = {...errors}
         toast({
           title: 'Submission failed',
           status: 'error',
@@ -94,7 +95,9 @@ export const CreditCardForm = () => {
       console.log(JSON.stringify(paymentToAdd, null, 4))
       console.log(`response : ${JSON.stringify(res, null, 4)}`)
 
-      resetForm()
+      if (!validationErrors) {
+        resetForm()
+      }
     } catch (err) {
       console.log(`Error : ${JSON.stringify(err, null, 4)}`)
       toast.error(`${err.response.data.message}`)
@@ -108,6 +111,7 @@ export const CreditCardForm = () => {
           {({error, onBlur, onChange, ref, valid, validating, value}) => (
             <Input
               label="Card number"
+              placeholder="4242424242424242"
               error={error}
               onBlur={onBlur}
               onChangeText={onChange}

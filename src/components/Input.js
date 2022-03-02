@@ -12,7 +12,17 @@ import {forwardRef} from 'react'
 
 export const Input = forwardRef(
   (
-    {error, label, onBlur, onChange, onChangeText, valid, validating, value},
+    {
+      error,
+      label,
+      onBlur,
+      onChange,
+      placeholder,
+      onChangeText,
+      valid,
+      validating,
+      value,
+    },
     forwardedRef,
   ) => {
     const id = useId()
@@ -24,6 +34,7 @@ export const Input = forwardRef(
         <InputGroup>
           <ChakraInput
             id={id}
+            placeholder={placeholder}
             ref={forwardedRef}
             error={error}
             onBlur={onBlur}
