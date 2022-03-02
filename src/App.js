@@ -14,7 +14,21 @@ import {CreditCardForm} from './forms/CreditCardForm'
 
 export const App = () => (
   <Flex flex={1} flexDirection={{base: 'column', md: 'row'}}>
-    <Flex
+    <Route path="/" component={CreditCardForm} />
+    {/* <Route path="/credit-card" component={CreditCardForm} /> */}
+
+    {/* <Route path="/" component={BasicForm} /> */}
+    {/* <Route path="/strategies" component={StrategiesForm} />
+    <Route path="/async-validation" component={AsyncValidationForm} />
+    <Route path="/async-submission" component={AsyncSubmissionForm} />
+    <Route path="/checkboxes" component={CheckboxesForm} />
+    <Route path="/fields-listener" component={FieldsListenerForm} />
+    <Route path="/iban" component={IBANForm} />
+    <Route path="/input-masking" component={InputMaskingForm} /> */}
+  </Flex>
+)
+
+/* <Flex
       backgroundColor="gray.50"
       flexDirection="column"
       overflowY="scroll"
@@ -42,30 +56,19 @@ export const App = () => (
       <Box height={3} />
 
       <VStack align="initial" spacing={1}>
-        <Link href="/">Basic</Link>
-        <Link href="/credit-card">Credit card</Link>
-        {/* <Link href="/strategies">Validation strategies</Link>
+        // <Link href="/">Basic</Link> 
+        <Link href="/">Credit card</Link>
+        // <Link href="/credit-card">Credit card</Link>       
+        // <Link href="/strategies">Validation strategies</Link>
         <Link href="/async-validation">Async validation</Link>
         <Link href="/async-submission">Async submission</Link>
         <Link href="/checkboxes">Checkboxes</Link>
         <Link href="/fields-listener">Fields listener</Link>
         <Link href="/iban">IBAN</Link>
-        <Link href="/input-masking">Input masking</Link> */}
+        <Link href="/input-masking">Input masking</Link> }
       </VStack>
-    </Flex>
-
-    {/* <Route path="/" component={BasicForm} /> */}
-    <Route path="/credit-card" component={CreditCardForm} />
-    {/* <Route path="/strategies" component={StrategiesForm} />
-    <Route path="/async-validation" component={AsyncValidationForm} />
-    <Route path="/async-submission" component={AsyncSubmissionForm} />
-    <Route path="/checkboxes" component={CheckboxesForm} />
-    <Route path="/fields-listener" component={FieldsListenerForm} />
-    <Route path="/iban" component={IBANForm} />
-    <Route path="/input-masking" component={InputMaskingForm} /> */}
-  </Flex>
-)
-
+    </Flex> 
+*/
 /*
 import logo from './logo.svg';
 import './App.css';
