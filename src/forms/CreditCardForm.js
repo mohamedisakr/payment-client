@@ -56,6 +56,10 @@ export const CreditCardForm = () => {
   let paymentToAdd = {}
   let validationErrors = {}
 
+  const checkIfErrorsExists = (errors) => {
+    return errors && Object.keys(errors).length ? true : false
+  }
+
   const onSubmit = async (event) => {
     event.preventDefault()
 
@@ -95,7 +99,7 @@ export const CreditCardForm = () => {
       console.log(JSON.stringify(paymentToAdd, null, 4))
       console.log(`response : ${JSON.stringify(res, null, 4)}`)
 
-      if (!validationErrors) {
+      if (checkIfErrorsExists(validationErrors) === false) {
         resetForm()
       }
     } catch (err) {
